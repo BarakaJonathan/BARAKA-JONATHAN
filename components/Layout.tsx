@@ -20,6 +20,14 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -63,7 +71,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
           ? (isSpace ? 'bg-slate-950/80 backdrop-blur-md border-b border-blue-900/30' : 'bg-slate-950/90 backdrop-blur-md border-b border-slate-800')
           : 'bg-transparent'
       }`}>
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
           <div className="text-2xl font-display font-bold tracking-tighter">
             BARAKA<span className={isSpace ? 'text-cyan-400' : 'text-emerald-500'}>.</span>
           </div>
@@ -94,6 +102,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
           <button 
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -101,24 +110,24 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
 
         {/* Mobile Nav Overlay */}
         {isMobileMenuOpen && (
-           <div className={`md:hidden absolute top-20 left-0 w-full p-6 border-b ${
-             isSpace ? 'bg-slate-900 border-blue-900' : 'bg-slate-900 border-slate-800'
+           <div className={`md:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] border-b backdrop-blur-xl ${
+             isSpace ? 'bg-slate-900/95 border-blue-900' : 'bg-slate-900/95 border-slate-800'
            }`}>
-             <div className="flex flex-col gap-4">
+             <div className="flex flex-col gap-6 p-8 items-center justify-center h-full">
                {navLinks.map((link) => (
                   <a 
                     key={link.name} 
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-lg font-medium text-slate-300 hover:text-white"
+                    className="text-2xl font-medium text-slate-300 hover:text-white"
                   >
                     {link.name}
                   </a>
-                ))}
-                <div className="pt-4 border-t border-slate-800">
-                  <span className="text-sm text-slate-500 mb-2 block">Switch Theme</span>
-                  <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-                </div>
+               ))}
+               <div className="pt-8 border-t border-slate-800 w-full flex flex-col items-center gap-4">
+                 <span className="text-sm text-slate-500">Switch Theme</span>
+                 <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+               </div>
              </div>
            </div>
         )}

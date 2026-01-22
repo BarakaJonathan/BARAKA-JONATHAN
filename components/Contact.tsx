@@ -32,7 +32,7 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
 
   return (
     <section id="contact" className={`py-24 relative overflow-hidden ${isSpace ? 'bg-blue-950/30' : 'bg-slate-900/50'}`}>
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
           
           {/* Info Side */}
@@ -98,7 +98,7 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
           {/* Form Side */}
           <div className={`p-10 md:w-3/5 ${isSpace ? 'bg-slate-900/80 backdrop-blur-sm' : 'bg-slate-50'}`}>
             <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className={`text-xs font-bold uppercase tracking-wide ${isSpace ? 'text-slate-400' : 'text-slate-500'}`}>Name</label>
                   <input 

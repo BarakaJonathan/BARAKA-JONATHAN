@@ -7,7 +7,7 @@ export const Skills: React.FC<{ theme: Theme }> = ({ theme }) => {
 
   return (
     <section id="skills" className={`py-20 ${isSpace ? 'bg-blue-950/20' : 'bg-slate-900/50'}`}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
             Technical <span className={isSpace ? 'text-cyan-400' : 'text-emerald-500'}>Skills</span>
