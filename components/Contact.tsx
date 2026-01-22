@@ -3,6 +3,8 @@ import { Theme } from '../types';
 import { Mail, MapPin, Send, Phone, MessageCircle } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 
+import { Reveal, FadeIn } from './Reveal';
+
 export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
   const isSpace = theme === 'space';
 
@@ -33,67 +35,71 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <section id="contact" className={`py-24 relative overflow-hidden ${isSpace ? 'bg-blue-950/30' : 'bg-slate-900/50'}`}>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-          
-          {/* Info Side */}
-          <div className={`p-10 md:w-2/5 flex flex-col justify-between ${
-            isSpace 
-              ? 'bg-gradient-to-br from-blue-900 to-slate-900 text-white' 
-              : 'bg-slate-800 text-white'
-          }`}>
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-              <p className="text-slate-300 mb-8 text-sm leading-relaxed">
-                Interested in working together or have a question? I'm always open to discussing product design work or partnership opportunities.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
-                    <Mail size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase font-semibold">Email</p>
-                    <p className="text-sm font-medium">{PERSONAL_INFO.email}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
-                    <MessageCircle size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase font-semibold">WhatsApp</p>
-                    <p className="text-sm font-medium">{PERSONAL_INFO.phone.whatsapp}</p>
+        <Reveal>
+          <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+            
+            {/* Info Side */}
+            <div className={`p-10 md:w-2/5 flex flex-col justify-between ${
+              isSpace 
+                ? 'bg-gradient-to-br from-blue-900 to-slate-900 text-white' 
+                : 'bg-slate-800 text-white'
+            }`}>
+              <FadeIn width="100%" direction="right">
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+                  <p className="text-slate-300 mb-8 text-sm leading-relaxed">
+                    Interested in working together or have a question? I'm always open to discussing product design work or partnership opportunities.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
+                        <Mail size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-400 uppercase font-semibold">Email</p>
+                        <p className="text-sm font-medium">{PERSONAL_INFO.email}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                      <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
+                        <MessageCircle size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-400 uppercase font-semibold">WhatsApp</p>
+                        <p className="text-sm font-medium">{PERSONAL_INFO.phone.whatsapp}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
+                        <Phone size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-400 uppercase font-semibold">Phone</p>
+                        <p className="text-sm font-medium">{PERSONAL_INFO.phone.normal}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                      <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
+                        <MapPin size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-400 uppercase font-semibold">Location</p>
+                        <p className="text-sm font-medium">{PERSONAL_INFO.location}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
-                    <Phone size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase font-semibold">Phone</p>
-                    <p className="text-sm font-medium">{PERSONAL_INFO.phone.normal}</p>
-                  </div>
+                <div className="mt-12">
+                  <p className="text-xs text-slate-400 mb-2">Designed by Baraka J.P.</p>
                 </div>
-                
-                <div className="flex items-center gap-4">
-                   <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
-                    <MapPin size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase font-semibold">Location</p>
-                    <p className="text-sm font-medium">{PERSONAL_INFO.location}</p>
-                  </div>
-                </div>
-              </div>
+              </FadeIn>
             </div>
 
-            <div className="mt-12">
-               <p className="text-xs text-slate-400 mb-2">Designed by Baraka J.P.</p>
-            </div>
-          </div>
 
           {/* Form Side */}
           <div className={`p-10 md:w-3/5 ${isSpace ? 'bg-slate-900/80 backdrop-blur-sm' : 'bg-slate-50'}`}>
@@ -179,7 +185,8 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
               </button>
             </form>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
