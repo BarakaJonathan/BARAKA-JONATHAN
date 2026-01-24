@@ -19,7 +19,7 @@ export const PERSONAL_INFO = {
   social: {
     linkedin: "https://www.linkedin.com/in/baraka-jonathan-67830432a/",
     github: "https://github.com/BarakaJonathan",
-    twitter: "#"
+    twitter: "https://x.com/barakaJona50125"
   },
   phone: {
     whatsapp: "0692 888 994",

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Theme } from '../types';
 import { Mail, MapPin, Send, Phone } from 'lucide-react';
-import { FaWhatsapp, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { PERSONAL_INFO } from '../constants';
 
 import { Reveal, FadeIn } from './Reveal';
@@ -110,7 +111,7 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
                     </a>
                     <a href={PERSONAL_INFO.social.twitter} target="_blank" rel="noopener noreferrer" 
                       className={`p-3 rounded-full transition-all flex items-center justify-center ${isSpace ? 'bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20' : 'bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20'}`}>
-                      <FaTwitter size={20} />
+                      <FaXTwitter size={20} />
                     </a>
                   </div>
                   <p className="text-xs text-slate-400 mt-8">Designed by Baraka J.P.</p>
