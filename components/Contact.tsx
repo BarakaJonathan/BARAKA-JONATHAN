@@ -1,6 +1,7 @@
 import React from 'react';
 import { Theme } from '../types';
-import { Mail, MapPin, Send, Phone, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Phone } from 'lucide-react';
+import { FaWhatsapp, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import { PERSONAL_INFO } from '../constants';
 
 import { Reveal, FadeIn } from './Reveal';
@@ -64,7 +65,9 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
                     
                     <div className="flex items-center gap-4">
                       <div className={`p-2 rounded-lg ${isSpace ? 'bg-cyan-500/20' : 'bg-emerald-500/20'}`}>
-                        <MessageCircle size={20} className={isSpace ? 'text-cyan-300' : 'text-emerald-300'} />
+                        <span className={isSpace ? 'text-cyan-300' : 'text-emerald-300'}>
+                          <FaWhatsapp size={20} />
+                        </span>
                       </div>
                       <div>
                         <p className="text-xs text-slate-400 uppercase font-semibold">WhatsApp</p>
@@ -95,7 +98,22 @@ export const Contact: React.FC<{ theme: Theme }> = ({ theme }) => {
                 </div>
 
                 <div className="mt-12">
-                  <p className="text-xs text-slate-400 mb-2">Designed by Baraka J.P.</p>
+                  <p className="text-xs text-slate-400 mb-4 uppercase tracking-widest font-bold">Follow Me</p>
+                  <div className="flex gap-4">
+                    <a href={PERSONAL_INFO.social.github} target="_blank" rel="noopener noreferrer" 
+                      className={`p-3 rounded-full transition-all flex items-center justify-center ${isSpace ? 'bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20' : 'bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20'}`}>
+                      <FaGithub size={20} />
+                    </a>
+                    <a href={PERSONAL_INFO.social.linkedin} target="_blank" rel="noopener noreferrer" 
+                      className={`p-3 rounded-full transition-all flex items-center justify-center ${isSpace ? 'bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20' : 'bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20'}`}>
+                      <FaLinkedin size={20} />
+                    </a>
+                    <a href={PERSONAL_INFO.social.twitter} target="_blank" rel="noopener noreferrer" 
+                      className={`p-3 rounded-full transition-all flex items-center justify-center ${isSpace ? 'bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20' : 'bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20'}`}>
+                      <FaTwitter size={20} />
+                    </a>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-8">Designed by Baraka J.P.</p>
                 </div>
               </FadeIn>
             </div>

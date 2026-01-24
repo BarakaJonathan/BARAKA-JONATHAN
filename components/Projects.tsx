@@ -1,7 +1,8 @@
 import React from 'react';
 import { Theme } from '../types';
-import { PROJECTS } from '../constants';
-import { ExternalLink, Github } from 'lucide-react';
+import { PROJECTS, PERSONAL_INFO } from '../constants';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 import { Reveal, FadeIn } from './Reveal';
 
@@ -23,9 +24,14 @@ export const Projects: React.FC<{ theme: Theme }> = ({ theme }) => {
             </Reveal>
           </div>
           <Reveal delay={0.2}>
-            <button className={`text-sm font-semibold hover:underline ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>
+            <a 
+              href={PERSONAL_INFO.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-semibold hover:underline ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}
+            >
               View GitHub Profile &rarr;
-            </button>
+            </a>
           </Reveal>
         </div>
 
@@ -82,7 +88,7 @@ export const Projects: React.FC<{ theme: Theme }> = ({ theme }) => {
                       rel="noopener noreferrer"
                       className="text-slate-400 hover:text-white transition-colors flex items-center gap-1 text-sm"
                     >
-                      <Github size={16} /> Code
+                      <FaGithub size={16} /> Code
                     </a>
                     <a 
                       href={project.liveUrl || "#"} 

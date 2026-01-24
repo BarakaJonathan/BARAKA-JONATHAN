@@ -18,7 +18,7 @@ export const PERSONAL_INFO = {
   location: "Tanzania",
   social: {
     linkedin: "#",
-    github: "#",
+    github: "https://github.com/BarakaJonathan",
     twitter: "#"
   },
   phone: {
