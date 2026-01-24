@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
   email: "barakajonathan128@gmail.com",
   location: "Tanzania",
   social: {
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/baraka-jonathan-67830432a/",
     github: "https://github.com/BarakaJonathan",
     twitter: "#"
   },
