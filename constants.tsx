@@ -4,6 +4,7 @@ import { Project, Experience, SkillCategory } from './types';
 import erpImage from './media/Nyumbani-ERP.png';
 import udomImage from './media/UDOM-Attendance.jpeg';
 import magazineImage from './media/Nyumbani-Magazine.png';
+import wavuviImage from './media/Wavuvi Lounge.png';
 
 export const PERSONAL_INFO = {
   name: "Baraka Jonathan Phinias",
@@ -23,11 +24,20 @@ export const PERSONAL_INFO = {
   },
   phone: {
     whatsapp: "0692 888 994",
-    normal: "0712 282 566"
+    normal: "0692 888 994"
   }
 };
 
 export const PROJECTS: Project[] = [
+  {
+    id: '4',
+    title: 'Wavuvi Lounge POS & Inventory',
+    role: 'Full Stack Developer',
+    description: 'A comprehensive Point of Sale (POS) and Inventory Management System for Wavuvi Lounge. Includes product management, real-time sales tracking, and robust profit calculations.',
+    tech: ['React', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+    imageUrl: wavuviImage,
+    liveUrl: 'https://wavuvi-lounge.vercel.app/'
+  },
   {
     id: '1',
     title: 'Nyumbani Company ERP',
