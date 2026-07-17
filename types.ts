@@ -21,6 +21,15 @@ export interface Experience {
   period: string;
   description: string;
   highlights: string[];
+  achievements?: string[];
+}
+
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  period: string;
+  details?: string;
 }
 
 export interface SkillCategory {

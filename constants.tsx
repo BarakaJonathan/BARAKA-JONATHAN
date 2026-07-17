@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code, Database, Globe, Layers, Briefcase, Cpu, Server, Settings } from 'lucide-react';
-import { Project, Experience, SkillCategory } from './types';
+import { Project, Experience, SkillCategory, Education } from './types';
 import erpImage from './media/Nyumbani-ERP.png';
 import udomImage from './media/UDOM-Attendance.jpeg';
 import magazineImage from './media/Nyumbani-Magazine.png';
@@ -13,21 +13,21 @@ export const PERSONAL_INFO = {
   name: "Baraka Jonathan Phinias",
   title: "Full Stack & DevOps Specialist",
   tagline: "Building robust systems with Python, React, and Modern Web Technologies.",
-  education: {
-    degree: "BSc in Computer Science",
-    university: "University of Dodoma",
-    year: "2025",
-  },
+  dateOfBirth: "2nd March, 2003",
+  nationality: "Tanzanian",
+  languages: "English and Swahili",
+  presentEmployer: "Matheos Techs Company Limited",
   email: "barakajonathan128@gmail.com",
   location: "Tanzania",
+  portfolio: "https://my-portifolio-phinias.vercel.app/",
   social: {
     linkedin: "https://www.linkedin.com/in/baraka-jonathan-67830432a/",
     github: "https://github.com/BarakaJonathan",
     twitter: "https://x.com/barakaJona50125"
   },
   phone: {
-    whatsapp: "0692 888 994",
-    normal: "0692 888 994"
+    whatsapp: "+255(0)692 888 994",
+    normal: "+255(0)712 282 566"
   }
 };
 
@@ -107,27 +107,79 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCE: Experience[] = [
   {
     id: '1',
-    company: 'Nyumbani Company Tanzania Ltd',
-    role: 'Full Stack Developer',
-    period: '2023 - Present',
-    description: 'Working with a dynamic startup environment to build internal tools and client-facing products.',
+    company: 'Matheos Techs Company Limited',
+    role: 'Full Stack Web Developer',
+    period: 'March 2026 - Current',
+    description: 'Corporate Internal Management System, E-commerce Platform, Inventory System, CRM, HRMS, Client websites and Web applications.',
     highlights: [
-      'Developed the Full Management System (ERP) from scratch.',
-      'Collaborated with Graphics and Animation departments for web assets.',
-      'Managed requirement analysis for system development projects.',
-      'Implemented Networking solutions for the Maintenance department.'
+      'Architecting and developing the Internal Management System to streamline daily company operations and employee workflows.',
+      'Building a full-featured E-commerce system, including shopping cart functionalities, secure payment gateway integration, and user authentication.',
+      'Developing an automated Inventory System with real-time stock tracking, automated alerts, and detailed reporting capabilities.',
+      'Designing responsive, user-friendly frontend interfaces using modern web frameworks.',
+      'Creating and managing robust backend architectures and RESTful APIs to ensure seamless communication between all three systems.',
+      'Optimizing database structures and queries to handle high traffic and ensure data integrity.',
+      'Overseeing system deployments, cloud server maintenance, and ongoing technical support.',
+      'Designing and Developing the Clients websites using web technologies like react, Vue, Django and Laravel.'
+    ],
+    achievements: [
+      'Successfully launched the company\'s E-commerce platform, establishing a reliable digital sales channel.',
+      'Centralized and automated core business operations, significantly reducing manual data entry through the Internal Management System.',
+      'Eliminated stock discrepancies and improved supply chain tracking via the custom Inventory System.',
+      'Enhanced overall software security, system scalability, and application load speeds.',
+      'Successfully designed, developed and deployed clients\' websites and web applications example, UVIWADA and Emjey.'
     ]
   },
   {
     id: '2',
-    company: 'Startup Incubation',
-    role: 'Junior Developer Intern',
-    period: '2022 - 2023',
-    description: 'Assisted in developing MVPs for local startups.',
+    company: 'Nyumbani Solutions Tanzania Limited',
+    role: 'Software Developer and Systems Analyst',
+    period: 'July 2025 - January 2026',
+    description: 'Corporate Software Applications and Deployment.',
     highlights: [
-      'Worked on backend logic using Node.js.',
-      'Assisted in database schema design with MongoDB.'
+      'Leading the collection and elicitation of user and stakeholder requirements.',
+      'Analyzing systems and architecting the business workflow.',
+      'Designing and developing custom web applications (managing frontend and back-end).',
+      'Overseeing the deployment of the software.',
+      'Providing ongoing technical refinements.',
+      'Attending stakeholder and team correspondence meetings.'
+    ],
+    achievements: [
+      'Successfully defined core functionalities and objectives of company software.',
+      'Ensured the software aligns with operational goals and user needs.',
+      'Deploying the Company Internal Management Software.',
+      'Maintained highly scalable and efficient application platforms.'
     ]
+  }
+];
+
+export const EDUCATION: Education[] = [
+  {
+    id: '1',
+    institution: 'University of Dodoma (UDOM)',
+    degree: 'Bachelor\'s Degree in Computer Science',
+    period: 'October 2022 – July 2025',
+    details: 'Second class Lower division'
+  },
+  {
+    id: '2',
+    institution: 'Galanos Secondary School',
+    degree: 'Advanced Certificate of Secondary Education',
+    period: 'July 2020 – May 2022',
+    details: 'Division 2 points 10'
+  },
+  {
+    id: '3',
+    institution: 'Semkiwa Secondary School',
+    degree: 'Ordinary Level Certificate of Secondary Education',
+    period: 'January 2016 – November 2019',
+    details: 'Division 1 points 12'
+  },
+  {
+    id: '4',
+    institution: 'Kilimani Primary School',
+    degree: 'Primary School Education',
+    period: 'January 2007 – November 2015',
+    details: 'Grade B'
   }
 ];
 
