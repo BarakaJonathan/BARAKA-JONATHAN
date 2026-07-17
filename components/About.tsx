@@ -10,7 +10,7 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
 
   return (
     <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
         <div className="text-center mb-16">
            <Reveal>
              <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isSpace ? 'text-white' : 'text-slate-100'}`}>
@@ -23,44 +23,44 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
         {/* Personal Information */}
         <Reveal delay={0.2}>
           <div className={`mb-16 p-8 rounded-2xl ${isSpace ? 'bg-slate-900/50 border border-blue-900/30' : 'bg-slate-800 border border-slate-700'}`}>
-            <h3 className={`text-2xl font-bold mb-6 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>Personal Information</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3">
+            <h3 className={`text-2xl font-bold mb-6 text-center ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>Personal Information</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <MapPin className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Location</p>
                   <p className="text-white">{PERSONAL_INFO.location}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Mail className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Email</p>
                   <p className="text-white">{PERSONAL_INFO.email}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Phone className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Phone</p>
                   <p className="text-white">{PERSONAL_INFO.phone.whatsapp}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Calendar className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Date of Birth</p>
                   <p className="text-white">{PERSONAL_INFO.dateOfBirth}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Award className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Nationality</p>
                   <p className="text-white">{PERSONAL_INFO.nationality}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Briefcase className={`w-5 h-5 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`} />
                 <div>
                   <p className="text-xs text-slate-500">Languages</p>
@@ -73,8 +73,8 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
 
         {/* Work Experience Section */}
         <Reveal delay={0.3}>
-          <div className="mb-16">
-            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>
+          <div className="mb-16 max-w-5xl mx-auto">
+            <h3 className={`text-2xl font-bold mb-8 flex items-center justify-center gap-3 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>
               <Briefcase className="w-6 h-6" />
               Professional Experience
             </h3>
@@ -83,7 +83,7 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
                 <FadeIn key={exp.id} delay={idx * 0.1} direction="up">
                   <div className={`p-6 rounded-xl ${isSpace ? 'bg-slate-900/50 border border-blue-900/30' : 'bg-slate-800 border border-slate-700'}`}>
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
+                      <div className="text-center md:text-left">
                         <h4 className="text-xl font-bold text-white">{exp.role}</h4>
                         <p className={`text-lg ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>{exp.company}</p>
                       </div>
@@ -91,10 +91,10 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-slate-400 mb-4">{exp.description}</p>
+                    <p className="text-slate-400 mb-4 text-center md:text-left">{exp.description}</p>
                     
                     <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-white mb-2">Key Responsibilities:</h5>
+                      <h5 className="text-sm font-semibold text-white mb-2 text-center md:text-left">Key Responsibilities:</h5>
                       <ul className="space-y-1">
                         {exp.highlights.map((highlight, hIdx) => (
                           <li key={hIdx} className="text-sm text-slate-400 flex items-start gap-2">
@@ -107,7 +107,7 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
                     
                     {exp.achievements && exp.achievements.length > 0 && (
                       <div>
-                        <h5 className="text-sm font-semibold text-white mb-2">Key Achievements:</h5>
+                        <h5 className="text-sm font-semibold text-white mb-2 text-center md:text-left">Key Achievements:</h5>
                         <ul className="space-y-1">
                           {exp.achievements.map((achievement, aIdx) => (
                             <li key={aIdx} className="text-sm text-slate-400 flex items-start gap-2">
@@ -127,8 +127,8 @@ export const About: React.FC<{ theme: Theme }> = ({ theme }) => {
 
         {/* Education Section */}
         <Reveal delay={0.4}>
-          <div>
-            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>
+          <div className="max-w-5xl mx-auto">
+            <h3 className={`text-2xl font-bold mb-8 flex items-center justify-center gap-3 ${isSpace ? 'text-cyan-400' : 'text-emerald-500'}`}>
               <GraduationCap className="w-6 h-6" />
               Education
             </h3>
