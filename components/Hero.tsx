@@ -49,22 +49,27 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
 
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isPlaying, setIsPlaying] = React.useState(true);
+  const [lastActiveIndex, setLastActiveIndex] = React.useState<number | null>(null);
+  const [direction, setDirection] = React.useState<'next' | 'prev' | null>(null);
 
   // Motion values for drag interactions
   const dragX = useMotionValue(0);
   const dragRotate = useTransform(dragX, [-150, 150], [-15, 15]);
 
   const handleNext = () => {
+    setLastActiveIndex(activeIndex);
+    setDirection('next');
     setActiveIndex((prev) => (prev + 1) % LIVE_PROJECTS.length);
     dragX.set(0);
   };
 
   const handlePrev = () => {
+    setLastActiveIndex(activeIndex);
+    setDirection('prev');
     setActiveIndex((prev) => (prev - 1 + LIVE_PROJECTS.length) % LIVE_PROJECTS.length);
     dragX.set(0);
   };
 
-  // Autoplay Logic
   React.useEffect(() => {
     if (!isPlaying) return;
 
@@ -73,7 +78,76 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isPlaying, activeIndex]);
+
+  // Determine transition animations (card flying out, going to back, and restacking)
+  const getAnimateValues = (idx: number) => {
+    let depth = idx - activeIndex;
+    if (depth < 0) depth += LIVE_PROJECTS.length;
+
+    const isActive = idx === activeIndex;
+    const scaleVal = 1 - depth * 0.04;
+    const yVal = -depth * 32;
+    const xVal = depth * 40;
+    const opacityVal = depth >= 3 ? 0 : 1 - depth * 0.35;
+    const zIndexVal = LIVE_PROJECTS.length - depth;
+
+    const defaultValues = {
+      scale: scaleVal,
+      y: yVal,
+      x: isActive ? undefined : xVal,
+      opacity: opacityVal,
+      zIndex: zIndexVal,
+      z: -depth * 25,
+      rotateX: 10,
+      rotateY: -14,
+      rotateZ: isActive ? undefined : 2,
+    };
+
+    // Card deal next: active card flies to the left out of the stack, and drops into the back of the deck
+    if (direction === 'next' && idx === lastActiveIndex && depth === LIVE_PROJECTS.length - 1) {
+      return {
+        ...defaultValues,
+        x: [0, -340, xVal],
+        y: [0, -40, yVal],
+        z: [20, 80, -75],
+        scale: [1, 1.05, scaleVal],
+        rotateZ: [2, -22, 2],
+        rotateX: [10, 5, 10],
+        rotateY: [-14, -5, -14],
+        opacity: [1, 0.9, opacityVal],
+        transition: {
+          duration: 0.65,
+          ease: "easeInOut",
+        }
+      };
+    }
+
+    // Card deal prev: back card flies out to the right and lands on top of the deck
+    if (direction === 'prev' && isActive && lastActiveIndex !== null) {
+      const prevX = 3 * 40;
+      const prevY = -3 * 32;
+      const prevScale = 1 - 3 * 0.04;
+
+      return {
+        ...defaultValues,
+        x: [prevX, prevX + 220, 0],
+        y: [prevY, prevY - 30, 0],
+        z: [-75, 80, 0],
+        scale: [prevScale, 1.05, 1],
+        rotateZ: [2, 22, 2],
+        rotateX: [10, 5, 10],
+        rotateY: [-14, -5, -14],
+        opacity: [0.3, 0.9, 1],
+        transition: {
+          duration: 0.65,
+          ease: "easeInOut",
+        }
+      };
+    }
+
+    return defaultValues;
+  };
 
   const getGlowColor = () => {
     if (isSpace) {
@@ -207,17 +281,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
                         }
                       }}
                       whileTap={{ scale: isActive ? 0.98 : scaleVal }}
-                      animate={{
-                        scale: scaleVal,
-                        y: yVal,
-                        x: isActive ? undefined : xVal,
-                        opacity: opacityVal,
-                        zIndex: zIndexVal,
-                        z: -depth * 25,
-                        rotateX: 10,
-                        rotateY: -14,
-                        rotateZ: isActive ? undefined : 2,
-                      }}
+                      animate={getAnimateValues(idx)}
                       transition={{
                         type: "spring",
                         stiffness: 260,
