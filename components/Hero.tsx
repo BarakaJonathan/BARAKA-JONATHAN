@@ -103,8 +103,8 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-        <div className="flex-1 md:flex-[0.6] lg:flex-[0.5] text-center md:text-left space-y-6 relative z-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
+        <div className="flex-1 md:flex-[0.6] lg:flex-[0.5] text-center md:text-left space-y-6 relative z-20 mt-8 md:mt-0">
           <Reveal>
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border ${isSpace ? 'bg-blue-900/30 border-cyan-500/50 text-cyan-300' : 'bg-slate-800 border-slate-700 text-emerald-400'}`}>
               <Terminal size={14} />
@@ -160,7 +160,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
         </div>
 
         {/* Visual Element / Live Projects 3D Showcase */}
-        <div className="flex-1 md:flex-[1.4] lg:flex-[1.5] w-full flex flex-col items-center justify-center mt-12 md:mt-0 relative z-10 md:-ml-20 lg:-ml-32 xl:-ml-40">
+        <div className="flex-1 md:flex-[1.4] lg:flex-[1.5] w-full flex flex-col items-center justify-center mb-8 md:mb-0 relative z-10 md:-ml-20 lg:-ml-32 xl:-ml-40">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
