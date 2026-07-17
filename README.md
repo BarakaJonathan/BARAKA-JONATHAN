@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Baraka Jonathan Phinias | Professional Developer Portfolio
 
-# Run and deploy your AI Studio app
+A premium, highly interactive personal portfolio website showcasing full-stack software development expertise, client applications, database management capabilities, and DevOps engineering skills.
 
-This contains everything you need to run your app locally.
+## 🚀 Key Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1xa0LKblJqHwV4xgzAcwX_irGeFvlfKEI
+* **3D Projects Deck**: An interactive, volumetric 3D deck of live web projects in the Hero section, supporting stable card-dealing/flipping animations, responsive sizing, and manual indicators.
+* **Dual Theme Engine**: Supports transitions between **Space Theme** (neon cyan & indigo highlights) and **Dark Theme** (emerald & slate highlights).
+* **Comprehensive Project Showcases**: Distinct showcases for **Live Client Systems** (including POS, E-commerce, and Corporate websites) and **Internal/Academic Systems**.
+* **Skills Directory**: Structured database profiling capabilities in Backend, Frontend, Databases, DevOps/Infrastructure, and Project Management.
+* **Responsive Visual Compositions**: Fully mobile-first design leveraging Tailwind CSS flex layouts.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🛠️ Technology Stack
 
+* **Frontend**: TypeScript, React, Vue.js, Tailwind CSS, Framer Motion, HTML5, CSS3
+* **Backend**: Python (Django), PHP (Laravel), Node.js (Express.js), RESTful APIs
+* **Databases & DevOps**: PostgreSQL, MongoDB, SQLite, Docker, CI/CD, Linux Server Management, Nginx
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## 💻 Running Locally
+
+### Prerequisites
+* **Node.js** (v18 or higher recommended)
+* **npm** or **yarn**
+
+### Steps to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BarakaJonathan/BARAKA-JONATHAN.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd BARAKA-JONATHAN
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the local development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and navigate to `http://localhost:5173` (or the local server address shown in the terminal).
+
+---
+
+## 📦 Building for Production
+
+To build the static application bundle:
+```bash
+npm run build
+```
+The compiled static assets will be outputted to the `dist/` directory, ready to be hosted on Vercel, Netlify, or any static web server.
