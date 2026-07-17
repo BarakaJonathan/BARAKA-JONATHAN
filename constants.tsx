@@ -157,29 +157,25 @@ export const EDUCATION: Education[] = [
     id: '1',
     institution: 'University of Dodoma (UDOM)',
     degree: 'Bachelor\'s Degree in Computer Science',
-    period: 'October 2022 – July 2025',
-    details: 'Second class Lower division'
+    period: 'October 2022 – July 2025'
   },
   {
     id: '2',
     institution: 'Galanos Secondary School',
     degree: 'Advanced Certificate of Secondary Education',
-    period: 'July 2020 – May 2022',
-    details: 'Division 2 points 10'
+    period: 'July 2020 – May 2022'
   },
   {
     id: '3',
     institution: 'Semkiwa Secondary School',
     degree: 'Ordinary Level Certificate of Secondary Education',
-    period: 'January 2016 – November 2019',
-    details: 'Division 1 points 12'
+    period: 'January 2016 – November 2019'
   },
   {
     id: '4',
     institution: 'Kilimani Primary School',
     degree: 'Primary School Education',
-    period: 'January 2007 – November 2015',
-    details: 'Grade B'
+    period: 'January 2007 – November 2015'
   }
 ];
 
