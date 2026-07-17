@@ -11,7 +11,7 @@ import emjeyImage from './media/Emjey.png';
 
 export const PERSONAL_INFO = {
   name: "Baraka Jonathan Phinias",
-  title: "Full Stack & DevOps Specialist",
+  title: "Full Stack Software Developer and DevOps Specialist",
   tagline: "Building robust systems with Python, React, and Modern Web Technologies.",
   dateOfBirth: "2nd March, 2003",
   nationality: "Tanzanian",
