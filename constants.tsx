@@ -182,12 +182,12 @@ export const EDUCATION: Education[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Backend Development",
-    skills: ["Python", "Django", "Node.js", "Express.js", "REST APIs"],
+    skills: ["Python", "Django", "PHP", "Laravel", "Node.js", "Express.js", "REST APIs"],
     icon: <Code className="w-6 h-6" />
   },
   {
     title: "Frontend Development",
-    skills: ["TypeScript", "React", "Tailwind CSS", "HTML5/CSS3"],
+    skills: ["TypeScript", "React", "Vue.js", "Tailwind CSS", "HTML5/CSS3"],
     icon: <Layers className="w-6 h-6" />
   },
   {
