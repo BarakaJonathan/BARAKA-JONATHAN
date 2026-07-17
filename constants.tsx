@@ -5,6 +5,9 @@ import erpImage from './media/Nyumbani-ERP.png';
 import udomImage from './media/UDOM-Attendance.jpeg';
 import magazineImage from './media/Nyumbani-Magazine.png';
 import wavuviImage from './media/Wavuvi Lounge.png';
+import matheostechsShopImage from './media/matheostechs shop.png';
+import matheostechsWebsiteImage from './media/matheostechswebsite.png';
+import emjeyImage from './media/Emjey.png';
 
 export const PERSONAL_INFO = {
   name: "Baraka Jonathan Phinias",
@@ -30,13 +33,44 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    id: '5',
+    title: 'Matheostechs Shop',
+    role: 'Full Stack Developer',
+    description: 'A modern e-commerce platform for Matheostechs, featuring product catalog, shopping cart, and secure payment integration.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    imageUrl: matheostechsShopImage,
+    liveUrl: 'https://shop.matheostechs.com',
+    category: 'live'
+  },
+  {
+    id: '6',
+    title: 'Matheostechs Website',
+    role: 'Full Stack Developer',
+    description: 'Corporate website for Matheostechs showcasing their services, portfolio, and company information with modern design.',
+    tech: ['React', 'Tailwind CSS', 'Node.js', 'Express'],
+    imageUrl: matheostechsWebsiteImage,
+    liveUrl: 'https://matheostechs.com',
+    category: 'live'
+  },
+  {
+    id: '7',
+    title: 'Emjey',
+    role: 'Full Stack Developer',
+    description: 'Professional business website for Emjey, featuring company services, team information, and client testimonials.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+    imageUrl: emjeyImage,
+    liveUrl: 'https://emjey.co.tz/',
+    category: 'live'
+  },
+  {
     id: '4',
     title: 'Wavuvi Lounge POS & Inventory',
     role: 'Full Stack Developer',
     description: 'A comprehensive Point of Sale (POS) and Inventory Management System for Wavuvi Lounge. Includes product management, real-time sales tracking, and robust profit calculations.',
     tech: ['React', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     imageUrl: wavuviImage,
-    liveUrl: 'https://wavuvi-lounge.vercel.app/'
+    liveUrl: 'https://wavuvi-lounge.vercel.app/',
+    category: 'live'
   },
   {
     id: '1',
@@ -44,7 +78,8 @@ export const PROJECTS: Project[] = [
     role: 'Lead Full Stack Developer',
     description: 'A comprehensive management system for Nyumbani Company LTD. Features include Financial Management, CRM, HR Management for diverse departments (Graphics, Animation, Studio, Maintenance).',
     tech: ['Django', 'PostgreSQL', 'React', 'Tailwind'],
-    imageUrl: erpImage
+    imageUrl: erpImage,
+    category: 'internal'
   },
   {
     id: '2',
@@ -53,7 +88,8 @@ export const PROJECTS: Project[] = [
     description: 'A native Android application developed for UDOM to automate and track student attendance using biometric and QR integration.',
     tech: ['Java', 'Android SDK', 'SQLite', 'Firebase'],
     imageUrl: udomImage,
-    githubUrl: 'https://github.com/BarakaJonathan/my-udomAttendance'
+    githubUrl: 'https://github.com/BarakaJonathan/my-udomAttendance',
+    category: 'internal'
   },
   {
     id: '3',
@@ -63,7 +99,8 @@ export const PROJECTS: Project[] = [
     tech: ['TypeScript', 'WordPress', 'PHP', 'React'],
     imageUrl: magazineImage,
     liveUrl: 'https://nyumbani-magazine1.vercel.app',
-    githubUrl: 'https://github.com/BarakaJonathan/nyumbani-magazine'
+    githubUrl: 'https://github.com/BarakaJonathan/nyumbani-magazine',
+    category: 'internal'
   }
 ];
 
