@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowDown, Download, Terminal, ChevronLeft, ChevronRight, Play, Pause, ExternalLink } from 'lucide-react';
-import { Theme } from '../types';
+import { ArrowDown, Download, ChevronLeft, ChevronRight, Play, Pause, ExternalLink } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 import resumePdf from '../media/BARAKA_JONATHAN_PHINIAS Resume.pdf';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
@@ -10,15 +9,9 @@ import matheostechsWebsiteImage from '../media/matheostechswebsite.png';
 import emjeyImage from '../media/Emjey.png';
 import wavuviImage from '../media/Wavuvi Lounge.png';
 
-interface HeroProps {
-  theme: Theme;
-}
+import { Reveal } from './Reveal';
 
-import { Reveal, FadeIn } from './Reveal';
-
-export const Hero: React.FC<HeroProps> = ({ theme }) => {
-  const isSpace = theme === 'space';
-
+export const Hero: React.FC = () => {
   // Live Projects Data
   const LIVE_PROJECTS = [
     {
@@ -150,83 +143,86 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
   };
 
   const getGlowColor = () => {
-    if (isSpace) {
-      switch (activeIndex) {
-        case 0: return 'from-cyan-500/25 to-blue-500/5';
-        case 1: return 'from-blue-500/25 to-indigo-500/5';
-        case 2: return 'from-violet-500/25 to-purple-500/5';
-        case 3: return 'from-fuchsia-500/25 to-pink-500/5';
-        default: return 'from-cyan-500/25 to-blue-500/5';
-      }
-    } else {
-      switch (activeIndex) {
-        case 0: return 'from-emerald-500/25 to-teal-500/5';
-        case 1: return 'from-teal-500/25 to-green-500/5';
-        case 2: return 'from-green-500/25 to-emerald-500/5';
-        case 3: return 'from-cyan-500/25 to-teal-500/5';
-        default: return 'from-emerald-500/25 to-teal-500/5';
-      }
-    }
+    return 'from-gold-400/10 to-transparent';
   };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Effects */}
-      <div className={`absolute inset-0 z-0 ${isSpace ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
-        {/* Stars are handled by parent css class, adding extra glow here */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow"></div>
+      {/* Background Skyline Silhouette and Subtle Radial Gradient Glow */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+        
+        {/* City Skyline Silhouette (matching the reference image) */}
+        <svg className="absolute bottom-0 left-0 w-full h-[35vh] opacity-[0.06] text-gold-400 pointer-events-none z-0" viewBox="0 0 1440 300" preserveAspectRatio="none" fill="currentColor">
+          <path d="M 0 300 
+                   L 0 250 L 30 250 L 30 300 
+                   L 50 300 L 50 180 L 100 180 L 100 120 L 105 120 L 105 180 L 110 180 L 110 300 
+                   L 140 300 L 140 220 L 190 220 L 190 300 
+                   L 220 300 L 220 140 L 230 110 L 240 140 L 250 140 L 250 300 
+                   L 280 300 L 280 80 L 290 80 L 290 50 L 295 10 L 300 50 L 300 80 L 310 80 L 310 300 
+                   L 350 300 L 350 190 L 390 190 L 390 300 
+                   L 420 300 L 420 230 L 460 230 L 460 300 
+                   L 480 300 L 480 90 L 510 50 L 540 90 L 540 300 
+                   L 570 300 L 570 200 L 610 200 L 610 300 
+                   L 640 300 L 640 150 L 690 150 L 690 300 
+                   L 710 300 L 710 70 L 715 70 L 715 30 L 717 10 L 720 30 L 720 70 L 730 70 L 730 300 
+                   L 760 300 L 760 210 L 810 210 L 810 300 
+                   L 840 300 L 840 130 L 850 100 L 860 130 L 880 130 L 880 300 
+                   L 910 300 L 910 170 L 960 170 L 960 300 
+                   L 990 300 L 990 80 L 1000 80 L 1005 30 L 1010 80 L 1020 80 L 1020 300 
+                   L 1050 300 L 1050 220 L 1100 220 L 1100 300 
+                   L 1130 300 L 1130 140 L 1170 140 L 1170 300 
+                   L 1200 300 L 1200 60 L 1205 60 L 1205 10 L 1210 60 L 1220 60 L 1220 300 
+                   L 1250 300 L 1250 180 L 1290 180 L 1290 300 
+                   L 1320 300 L 1320 240 L 1370 240 L 1370 300 
+                   L 1400 300 L 1400 110 L 1440 110 L 1440 300 Z" />
+        </svg>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
         <div className="flex-1 md:flex-[0.6] lg:flex-[0.5] text-center md:text-left space-y-6 relative z-20 mt-8 md:mt-0">
           <Reveal>
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border ${isSpace ? 'bg-blue-900/30 border-cyan-500/50 text-cyan-300' : 'bg-slate-800 border-slate-700 text-emerald-400'}`}>
-              <Terminal size={14} />
-              <span className="text-xs sm:text-sm font-medium tracking-wide">Professional Software Development</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-forest-900/40 text-gold-300 font-sans backdrop-blur-sm select-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+              <span className="text-xs uppercase tracking-widest font-semibold font-sans">Professional Software Development</span>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
-              {PERSONAL_INFO.name.split(' ')[0]} <br />
-              <span className={`bg-clip-text text-transparent bg-gradient-to-r ${isSpace ? 'from-cyan-400 to-blue-600' : 'from-emerald-400 to-teal-600'}`}>
-                {PERSONAL_INFO.name.split(' ').slice(1).join(' ')}
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-light text-gold-50 leading-none tracking-tight">
+              Baraka <br />
+              <span className="font-serif font-normal italic text-gold-400 block mt-3">
+                Jonathan Phinias
               </span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-2xl font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-gold-200 max-w-2xl font-light font-serif italic">
               {PERSONAL_INFO.title}
             </p>
           </Reveal>
 
           <Reveal delay={0.3}>
-            <p className="text-slate-400 max-w-lg leading-relaxed text-sm sm:text-base">
+            <p className="text-gold-100/70 max-w-lg leading-relaxed text-sm sm:text-base font-light">
               {PERSONAL_INFO.tagline}
             </p>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4 font-sans">
               <a
                 href="#projects"
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${isSpace
-                  ? 'bg-cyan-600 hover:bg-cyan-500 text-white shadow-cyan-900/20'
-                  : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-900/20'
-                  }`}
+                className="px-8 py-3.5 rounded-lg font-bold tracking-wider uppercase text-xs bg-gold-400 text-forest-950 hover:bg-gold-300 transition-all duration-300 shadow-[0_4px_20px_rgba(197,168,128,0.15)] hover:shadow-[0_4px_25px_rgba(197,168,128,0.25)]"
               >
                 View Projects
               </a>
               <a
                 href={resumePdf}
                 download="BARAKA_JONATHAN_PHINIAS_Resume.pdf"
-                className={`px-8 py-3 rounded-lg font-semibold border-2 transition-all duration-300 flex items-center gap-2 ${isSpace
-                  ? 'border-cyan-500/30 text-cyan-300 hover:bg-cyan-950/50'
-                  : 'border-slate-600 text-slate-300 hover:bg-slate-800'
-                  }`}
+                className="px-8 py-3.5 rounded-lg font-bold tracking-wider uppercase text-xs border border-gold-400/40 text-gold-400 hover:text-gold-200 hover:bg-gold-400/10 transition-all duration-300 flex items-center gap-2"
               >
-                <Download size={18} />
+                <Download size={16} />
                 Download Resume
               </a>
             </div>
@@ -301,20 +297,20 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
                       }}
                       className={`rounded-2xl border ${
                         isActive
-                          ? (isSpace ? 'border-cyan-500/40 shadow-[0_20px_50px_rgba(6,182,212,0.25)]' : 'border-emerald-500/40 shadow-[0_20px_50px_rgba(16,185,129,0.25)]')
-                          : 'border-slate-800/80 shadow-md'
-                      } bg-slate-950 overflow-hidden flex flex-col`}
+                          ? 'border-gold-400/40 shadow-[0_20px_50px_rgba(197,168,128,0.12)]'
+                          : 'border-gold-400/10 shadow-md'
+                      } bg-forest-900 overflow-hidden flex flex-col`}
                     >
                       {/* Browser Title Bar Mockup */}
-                      <div className="h-7 sm:h-9 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 select-none">
+                      <div className="h-7 sm:h-9 bg-forest-950 border-b border-gold-400/10 flex items-center justify-between px-3 select-none">
                         {/* Traffic light dots */}
                         <div className="flex gap-1.5 items-center">
-                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500/80" />
-                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-500/80" />
-                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500/80" />
+                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gold-400/20" />
+                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gold-400/40" />
+                          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gold-400/60" />
                         </div>
                         {/* Mock Address Bar */}
-                        <div className="w-36 sm:w-48 md:w-56 h-4 sm:h-5 bg-slate-950/60 rounded border border-slate-800/60 text-[8px] sm:text-[9px] text-slate-500 flex items-center justify-center font-mono truncate px-2">
+                        <div className="w-36 sm:w-48 md:w-56 h-4 sm:h-5 bg-forest-900/60 rounded border border-gold-400/15 text-[8px] sm:text-[9px] text-gold-300/60 flex items-center justify-center font-mono truncate px-2">
                           {project.url.replace('https://', '')}
                         </div>
                         {/* Empty spacing for symmetry */}
@@ -322,7 +318,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
                       </div>
 
                       {/* Web Project Screenshot */}
-                      <div className="flex-1 w-full overflow-hidden relative bg-slate-900">
+                      <div className="flex-1 w-full overflow-hidden relative bg-forest-950">
                         <img
                           src={project.image}
                           alt={project.title}
@@ -339,11 +335,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
                             animate={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className={`absolute bottom-3 right-3 z-20 p-2 sm:p-2.5 rounded-full shadow-lg backdrop-blur-md border ${
-                              isSpace
-                                ? 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300 hover:bg-cyan-500 hover:text-white shadow-cyan-500/10'
-                                : 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300 hover:bg-emerald-500 hover:text-white shadow-emerald-500/10'
-                            } transition-all duration-200`}
+                            className="absolute bottom-3 right-3 z-20 p-2 sm:p-2.5 rounded-full shadow-lg backdrop-blur-md border bg-forest-950/90 border-gold-400/30 text-gold-300 hover:bg-gold-400 hover:text-forest-950 shadow-gold-500/10 transition-all duration-200"
                           >
                             <ExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
                           </motion.a>
@@ -360,11 +352,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
               {/* Prev Button */}
               <button
                 onClick={handlePrev}
-                className={`p-1.5 sm:p-2 rounded-lg border backdrop-blur-sm transition-all duration-300 ${
-                  isSpace
-                    ? 'bg-slate-900/50 border-cyan-500/30 text-cyan-300 hover:bg-cyan-950/50 hover:border-cyan-500'
-                    : 'bg-slate-900/50 border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-emerald-500 hover:text-emerald-400'
-                }`}
+                className="p-1.5 sm:p-2 rounded-lg border border-gold-400/20 backdrop-blur-sm transition-all duration-300 bg-forest-900/50 text-gold-300 hover:bg-gold-400/15 hover:border-gold-400 hover:text-gold-200"
                 aria-label="Previous Project"
               >
                 <ChevronLeft size={18} />
@@ -380,8 +368,8 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
                       onClick={() => setActiveIndex(idx)}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         isActive
-                          ? (isSpace ? 'w-5 sm:w-6 bg-cyan-400' : 'w-5 sm:w-6 bg-emerald-500')
-                          : 'w-1.5 bg-slate-600 hover:bg-slate-500'
+                          ? 'w-5 sm:w-6 bg-gold-400'
+                          : 'w-1.5 bg-gold-400/30 hover:bg-gold-400/60'
                       }`}
                       aria-label={`Go to project ${idx + 1}`}
                     />
@@ -392,11 +380,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
               {/* Next Button */}
               <button
                 onClick={handleNext}
-                className={`p-1.5 sm:p-2 rounded-lg border backdrop-blur-sm transition-all duration-300 ${
-                  isSpace
-                    ? 'bg-slate-900/50 border-cyan-500/30 text-cyan-300 hover:bg-cyan-950/50 hover:border-cyan-500'
-                    : 'bg-slate-900/50 border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-emerald-500 hover:text-emerald-400'
-                }`}
+                className="p-1.5 sm:p-2 rounded-lg border border-gold-400/20 backdrop-blur-sm transition-all duration-300 bg-forest-900/50 text-gold-300 hover:bg-gold-400/15 hover:border-gold-400 hover:text-gold-200"
                 aria-label="Next Project"
               >
                 <ChevronRight size={18} />
@@ -405,11 +389,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
               {/* Play / Pause Autoplay */}
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className={`p-1.5 sm:p-2 rounded-lg border backdrop-blur-sm transition-all duration-300 ml-1 ${
-                  isSpace
-                    ? 'bg-slate-900/50 border-cyan-500/30 text-cyan-400/80 hover:text-cyan-300'
-                    : 'bg-slate-900/50 border-slate-700 text-slate-400 hover:text-emerald-400'
-                }`}
+                className="p-1.5 sm:p-2 rounded-lg border border-gold-400/20 backdrop-blur-sm transition-all duration-300 ml-1 bg-forest-900/50 text-gold-400 hover:text-gold-200"
                 title={isPlaying ? "Pause autoplay" : "Start autoplay"}
               >
                 {isPlaying ? <Pause size={14} /> : <Play size={14} />}
@@ -419,7 +399,7 @@ export const Hero: React.FC<HeroProps> = ({ theme }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gold-400/40">
         <ArrowDown size={24} />
       </div>
     </section>

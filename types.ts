@@ -1,7 +1,5 @@
 import React from 'react';
 
-export type Theme = 'dark' | 'space';
-
 export interface Project {
   id: string;
   title: string;

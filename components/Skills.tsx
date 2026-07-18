@@ -1,49 +1,38 @@
 import React from 'react';
-import { Theme } from '../types';
 import { SKILL_CATEGORIES } from '../constants';
-
 import { Reveal, FadeIn } from './Reveal';
 
-export const Skills: React.FC<{ theme: Theme }> = ({ theme }) => {
-  const isSpace = theme === 'space';
-
+export const Skills: React.FC = () => {
   return (
-    <section id="skills" className={`py-20 ${isSpace ? 'bg-blue-950/20' : 'bg-slate-900/50'}`}>
+    <section id="skills" className="py-24 bg-forest-950/40 border-y border-gold-400/5">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
            <Reveal>
-             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
-              Technical <span className={isSpace ? 'text-cyan-400' : 'text-emerald-500'}>Skills</span>
+             <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4 text-gold-50 tracking-wide">
+              Technical <span className="text-gold-400 italic">Skills</span>
              </h2>
-             <p className="text-slate-400">Tools and technologies I use to bring ideas to life</p>
+             <div className="h-0.5 w-16 mx-auto rounded-full bg-gold-400/40 mb-3"></div>
+             <p className="text-gold-200/60 font-serif italic text-sm">Tools and technologies I use to bring ideas to life</p>
            </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {SKILL_CATEGORIES.map((category, idx) => (
             <FadeIn key={idx} delay={idx * 0.1} direction="up" className="h-full">
               <div 
-                className={`p-6 rounded-2xl transition-all duration-300 group h-full ${
-                  isSpace 
-                    ? 'bg-slate-900/60 border border-blue-800 hover:border-cyan-400' 
-                    : 'bg-slate-800 border border-slate-700 hover:border-emerald-500'
-                }`}
+                className="p-6 rounded-2xl bg-forest-900 border border-gold-400/10 hover:border-gold-400/35 transition-all duration-500 group h-full hover:shadow-[0_12px_40px_rgba(197,168,128,0.06)] flex flex-col"
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors ${
-                  isSpace 
-                    ? 'bg-blue-900/50 text-cyan-400 group-hover:bg-cyan-900/30' 
-                    : 'bg-slate-700 text-emerald-400 group-hover:bg-emerald-900/20'
-                }`}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-forest-800 text-gold-400 group-hover:bg-gold-400 group-hover:text-forest-950 transition-all duration-300 shadow-inner">
                   {category.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-4">{category.title}</h3>
+                <h3 className="text-lg font-serif font-semibold text-gold-50 mb-4">{category.title}</h3>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-2 mt-auto">
                   {category.skills.map((skill, sIdx) => (
-                    <li key={sIdx} className="flex items-center gap-2 text-slate-400 text-sm">
-                      <span className={`w-1.5 h-1.5 rounded-full ${isSpace ? 'bg-cyan-500' : 'bg-emerald-500'}`}></span>
-                      {skill}
+                    <li key={sIdx} className="flex items-center gap-2.5 text-gold-100/70 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-400/60"></span>
+                      <span>{skill}</span>
                     </li>
                   ))}
                 </ul>

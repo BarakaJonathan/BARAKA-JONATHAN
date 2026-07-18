@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Theme } from './types';
+import React from 'react';
 import { Layout } from './components/Layout';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -9,18 +8,16 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 function App() {
-  const [theme, setTheme] = useState<Theme>('space');
-
   return (
-    <Layout theme={theme} setTheme={setTheme}>
+    <Layout>
       <main>
-        <Hero theme={theme} />
-        <About theme={theme} />
-        <Skills theme={theme} />
-        <Projects theme={theme} />
-        <Contact theme={theme} />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
-      <Footer theme={theme} />
+      <Footer />
     </Layout>
   );
 }

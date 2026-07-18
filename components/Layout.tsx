@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Theme } from '../types';
-import { ThemeToggle } from './ThemeToggle';
 import { Menu, X } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
-  theme: Theme;
-  setTheme: (t: Theme) => void;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isSpace = theme === 'space';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -36,10 +31,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
     { name: 'Contact', href: '#contact' },
   ];
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'space' : 'dark');
-  };
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -60,20 +51,24 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${
-      isSpace 
-        ? 'bg-slate-950 space-bg text-blue-50' 
-        : 'bg-slate-950 text-slate-200'
-    }`}>
+    <div className="min-h-screen forest-bg text-gold-50 font-sans selection:bg-gold-400 selection:text-forest-950">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? (isSpace ? 'bg-slate-950/80 backdrop-blur-md border-b border-blue-900/30' : 'bg-slate-950/90 backdrop-blur-md border-b border-slate-800')
+          ? 'bg-forest-950/90 backdrop-blur-md border-b border-gold-400/10'
           : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-display font-bold tracking-tighter">
-            BARAKA<span className={isSpace ? 'text-cyan-400' : 'text-emerald-500'}>.</span>
+          <div className="flex items-center gap-3 select-none">
+            {/* Elegant Golden Calligraphic Emblem */}
+            <svg className="w-7 h-9 text-gold-400 fill-current" viewBox="0 0 100 120">
+              <path d="M50 5 Q50 35 68 38 Q58 50 62 68 Q52 75 52 82 H60 V55 L65 52 V82 H72 V48 L76 45 V82 H82 V35 L86 32 V85 Q65 88 50 115 Q35 88 14 85 V32 L18 35 V82 H24 V45 L28 48 V82 H35 V52 L40 55 V82 H48 V5 Z" />
+              <path d="M46 30 L50 24 L54 30 L50 36 Z" />
+              <path d="M46 45 L50 39 L54 45 L50 51 Z" />
+            </svg>
+            <span className="text-lg font-serif tracking-widest text-gold-400 font-semibold">
+              BARAKA
+            </span>
           </div>
 
           {/* Desktop Nav */}
@@ -83,51 +78,38 @@ export const Layout: React.FC<LayoutProps> = ({ children, theme, setTheme }) => 
                 key={link.name} 
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`group relative text-sm font-medium transition-colors hover:text-white ${
-                  isSpace ? 'text-slate-300' : 'text-slate-400'
-                }`}
+                className="group relative text-sm font-medium transition-colors text-gold-200 hover:text-gold-400"
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isSpace ? 'bg-cyan-400' : 'bg-emerald-500'
-                }`}></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-gold-400"></span>
               </a>
             ))}
-            <div className="pl-4 border-l border-slate-700">
-               <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-white"
+            className="md:hidden text-gold-400"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Nav Overlay */}
         {isMobileMenuOpen && (
-           <div className={`md:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] border-b backdrop-blur-xl ${
-             isSpace ? 'bg-slate-900/95 border-blue-900' : 'bg-slate-900/95 border-slate-800'
-           }`}>
+           <div className="md:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] border-b border-gold-400/10 bg-forest-950/98 backdrop-blur-xl">
              <div className="flex flex-col gap-6 p-8 items-center justify-center h-full">
                {navLinks.map((link) => (
                   <a 
                     key={link.name} 
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-2xl font-medium text-slate-300 hover:text-white"
+                    className="text-2xl font-serif tracking-wide text-gold-200 hover:text-gold-400"
                   >
                     {link.name}
                   </a>
                ))}
-               <div className="pt-8 border-t border-slate-800 w-full flex flex-col items-center gap-4">
-                 <span className="text-sm text-slate-500">Switch Theme</span>
-                 <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-               </div>
              </div>
            </div>
         )}

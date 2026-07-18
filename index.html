@@ -5,14 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baraka Jonathan Phinias | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            colors: {
+              forest: {
+                950: '#031411', // Deepest green
+                900: '#05221B', // Card background / dark green
+                800: '#083027', // Highlights / borders
+                700: '#0B3A2F', // Mid green
+                DEFAULT: '#0B3C30',
+              },
+              gold: {
+                50: '#FAF8F5',  // Cream text
+                100: '#F4EFE6', // Muted cream text
+                200: '#EAE2D2', // Soft sand
+                300: '#D7CBB3', // Light brass
+                400: '#C5A880', // Champagne Gold / primary accent
+                DEFAULT: '#C5A880',
+                600: '#B0946E', // Muted gold
+                700: '#947853', // Dark gold/bronze
+              }
+            },
             fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
-              display: ['Space Grotesk', 'sans-serif'],
+              serif: ['Cormorant Garamond', 'serif'],
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
             },
             animation: {
               'spin-slow': 'spin 12s linear infinite',
@@ -36,33 +55,29 @@
         scroll-padding-top: 80px; /* Offset for fixed header */
       }
       
-      /* Custom Scrollbar */
+      /* Custom Scrollbar matching the theme */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a;
+        background: #031411;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155;
+        background: #083027;
         border-radius: 4px;
+        border: 1px solid rgba(197, 168, 128, 0.1);
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
+        background: #C5A880;
       }
       
-      .space-bg {
+      .forest-bg {
+        background-color: #031411;
         background-image: 
-          radial-gradient(circle at 50% 0%, #1e3a8a 0%, transparent 50%),
-          radial-gradient(circle at 0% 50%, #172554 0%, transparent 40%),
-          radial-gradient(circle at 100% 50%, #1e1b4b 0%, transparent 40%),
-          radial-gradient(1px 1px at 10% 10%, #fff 100%, transparent),
-          radial-gradient(1px 1px at 20% 20%, #fff 100%, transparent),
-          radial-gradient(2px 2px at 30% 70%, #fff 100%, transparent),
-          radial-gradient(1px 1px at 40% 40%, #fff 100%, transparent),
-          radial-gradient(2px 2px at 50% 80%, #fff 100%, transparent),
-          radial-gradient(1px 1px at 90% 10%, #fff 100%, transparent);
-        background-size: 100% 100%, 100% 100%, 100% 100%, 400px 400px, 350px 350px, 300px 300px, 250px 250px, 500px 500px, 450px 450px;
+          radial-gradient(circle at 50% 0%, #0B3C30 0%, transparent 60%),
+          radial-gradient(circle at 0% 100%, #05221B 0%, transparent 40%),
+          radial-gradient(circle at 100% 100%, #06201A 0%, transparent 40%);
+        background-size: 100% 100%;
       }
     </style>
   <script type="importmap">
